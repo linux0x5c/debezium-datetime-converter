@@ -6,16 +6,16 @@
     <!--<parent>-->
         <!--<groupId>io.debezium</groupId>-->
         <!--<artifactId>debezium-parent</artifactId>-->
-        <!--<version>1.4.0.Final</version>-->
+        <!--<version>1.9.3.Final</version>-->
     <!--</parent>-->
     <groupId>com.darcytech.debezium</groupId>
     <artifactId>debezium-extension</artifactId>
-    <version>1.4.0.Final</version>
+    <version>1.9.3.Final</version>
     <packaging>jar</packaging>
 
     <properties>
-        <version.debezium>1.4.0.Final</version.debezium>
-        <version.kafka>2.6.0</version.kafka>
+        <version.debezium>1.9.3.Final</version.debezium>
+        <version.kafka>3.1.0</version.kafka>
     </properties>
     <dependencies>
         <dependency>
