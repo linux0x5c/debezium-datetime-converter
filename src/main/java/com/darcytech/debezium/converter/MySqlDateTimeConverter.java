@@ -113,6 +113,13 @@ public class MySqlDateTimeConverter implements CustomConverter<SchemaBuilder, Re
     }
 
     private String convertTimestamp(Object input) {
+        //全量获取时间晚数据库8小时
+        if (input instanceof Timestamp) {
+	        LocalDateTime localDateTime = ((Timestamp) input).toLocalDateTime();
+	        ZonedDateTime zonedDateTime = localDateTime.atZone(timestampZoneId).withZoneSameInstant(ZoneId.from(ZoneOffset.UTC));
+	        return timestampFormatter.format(zonedDateTime.toLocalDateTime());
+        }
+        //增量获取时间早数据库8小时
         if (input instanceof ZonedDateTime) {
             // mysql的timestamp会转成UTC存储，这里的zonedDatetime都是UTC时间
             ZonedDateTime zonedDateTime = (ZonedDateTime) input;
