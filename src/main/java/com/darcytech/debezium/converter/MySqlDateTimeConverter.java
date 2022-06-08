@@ -106,6 +106,9 @@ public class MySqlDateTimeConverter implements CustomConverter<SchemaBuilder, Re
     }
 
     private String convertDateTime(Object input) {
+	if(input instanceof Timestamp){
+            return timestampFormatter.format(((Timestamp) input).toLocalDateTime());
+        }
         if (input instanceof LocalDateTime) {
             return datetimeFormatter.format((LocalDateTime) input);
         }
